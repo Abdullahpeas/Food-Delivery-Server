@@ -96,6 +96,15 @@ async function run() {
         });
 
 
+        app.put("/status/:id", async (req, res) => {
+            const id = req.params.id;
+            const statusShow = req.body;
+            const filter = { _id: ObjectId(id) };
+            const result = await orderCollection.updateOne(filter, { $set: { status: "Approved", }, })
+            res.send(result);
+            console.log(result)
+        })
+
     }
     finally {
         // await client.close()
