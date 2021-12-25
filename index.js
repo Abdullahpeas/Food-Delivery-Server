@@ -75,7 +75,7 @@ async function run() {
         });
 
 
-        // Manage all Orders
+        // Manage all Order
 
         app.get("/allOrders", async (req, res) => {
             const result = await orderCollection.find({}).toArray();
